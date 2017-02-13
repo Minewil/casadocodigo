@@ -14,6 +14,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+
+
 @EnableTransactionManagement
 public class JPAConfiguration {
 
@@ -36,7 +38,7 @@ public class JPAConfiguration {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
 		dataSource.setUsername("root");
-		dataSource.setPassword("root");
+		dataSource.setPassword("");
 		return dataSource;
 	}
 	

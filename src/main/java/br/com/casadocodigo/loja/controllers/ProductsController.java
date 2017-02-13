@@ -13,11 +13,12 @@ import br.com.casadocodigo.loja.models.Product;
 @Transactional
 public class ProductsController {
 	
+	@Autowired
 	private ProductDAO productDAO;
 	
 	@RequestMapping("/produtos")
-	public String save(){
-		System.out.println("Cadastrando o produto");
+	public String save(Product product){
+		productDAO.save(product);
 		return "products/ok";
 	}
 	
@@ -26,9 +27,6 @@ public class ProductsController {
 		return "products/form";
 	}
 	
-	@Autowired
-	public String save(Product product){
-		productDAO.save(product);
-		return "products/ok";
-	}
+	
+	
 }
