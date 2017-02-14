@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -25,5 +27,12 @@
 			<input type="submit" value="Enviar" />
 		</div>
 	</form>
+	<c:forEach items="${types}" var="bookType" varStatus="status">
+		<div>
+			<label for="price_${bookType}">${bookType}</label>
+			<input type="text" name="prices[${status.index}].value" id="price_${bookType}" />
+			<input type="hidden" name="prices[${status.index}].bookType" value="${bookType}" />
+		</div>
+	</c:forEach>
 </body>
 </html>
